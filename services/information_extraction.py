@@ -71,18 +71,17 @@ def extract_infos(text: str):
                 extracted_data["property_details"]["description"] = ent.text
                 description.append(f"{token.text} {token.head.text}")
     extracted_data["property_details"]["description"] = description
-    # print(extracted_data)
-    # load_data(data=extracted_data)
     # extract region from address
     region = extract_region_from_address(
         address=extracted_data["property_details"]["address"], nlp=nlp
     )
     extracted_data["property_details"]["region"] = region
     print(json.dumps(extracted_data, indent=2))
+    load_data(data=extracted_data)
     return extracted_data
 
 
 # for i in range(1, 6):
-#     with open(file=f"TP1_SOAP/sample_data/{i}.txt", encoding="utf-8") as f:
+#     with open(file=f"TP_FAST_API/sample_data/{i}.txt", encoding="utf-8") as f:
 #         text = f.read()
 #         extract_infos(text=text)

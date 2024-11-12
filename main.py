@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import json
-from TP1_SOAP.services.verify_solvability import is_solvable
-from TP1_SOAP.services.information_extraction import extract_infos
-from TP1_SOAP.services.property_evaluation import evaluate_property
+from TP_FAST_API.services.verify_solvability import is_solvable
+from TP_FAST_API.services.information_extraction import extract_infos
+from TP_FAST_API.services.property_evaluation import evaluate_property
 
 app = FastAPI()
 
@@ -68,7 +68,7 @@ async def make_decision(request: DecisionRequest):
     return json.dumps(decision)
 
 
-if __name__ == "__main__":
-    import uvicorn
+# if __name__ == "__main__":
+#     import uvicorn
 
-    uvicorn.run(app, host="localhost", port=8000)
+#     uvicorn.run(app, host="localhost", port=8000)
